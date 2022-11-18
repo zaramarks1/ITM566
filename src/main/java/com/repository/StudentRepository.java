@@ -10,5 +10,7 @@ public interface StudentRepository extends JpaRepository<Student, String>, JpaSp
 
     Student findStudentById(Integer id);
 
+    boolean existsStudentById(Integer id);
+
 
 }

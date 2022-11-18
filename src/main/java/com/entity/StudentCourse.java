@@ -14,7 +14,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "studentCourse")
+@Table(uniqueConstraints=
+        @UniqueConstraint(columnNames = {"studentId", "courseId"}))
 public class StudentCourse {
 
     @Id

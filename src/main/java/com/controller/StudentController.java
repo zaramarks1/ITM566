@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.entity.Course;
 import com.entity.Student;
 import com.repository.StudentRepository;
 import com.service.StudentService;
@@ -35,7 +36,13 @@ public class StudentController {
 
     @PostMapping("")
     private ResponseEntity<Student> addStudent(@RequestBody Student student){
-            return null;
+            return ResponseEntity.ok(studentService.createStudent(student));
+    }
+
+    @GetMapping("/{id}/courses")
+    private ResponseEntity<List<Course>> getStudentCourses(@PathVariable("id")Integer id) throws SQLException{
+
+        return ResponseEntity.ok(studentService.getStudentCourses(id));
     }
 
 
